@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine’s Day, Lekha ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe6eb, #fff);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #c9184a;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity:1; }
+      to { transform: translateY(-120vh); opacity:0; }
+    }
+
+    .valentine-btn {
+      background: #c9184a;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s ease;
+    }
+
+    .valentine-btn:hover {
+      background: #a4133c;
+      transform: scale(1.05);
+    }
+
+    .no-btn {
+      background: #ff758f;
+    }
+
+    .hidden { display: none; }
+
+    footer { padding: 30px; font-size: 0.9rem; color: #777; }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section>
+    <h1>Happy Valentine’s Day, Lekha ❤️</h1>
+    <p>
+      Lekha, I made this little corner of the internet just for you.
+      Because someone as special as you deserves something made with love.
+    </p>
+  </section>
+
+  <!-- STORY -->
+  <section>
+    <h2>Our Story</h2>
+    <p>
+      From the moment we met, something felt different.  
+      Every laugh, every memory, every quiet moment — they all mean more because they’re with you.
+    </p>
+    <p>
+      Lekha, you’re my favorite thought in every quiet moment
+      and my happiest feeling in every loud one.
+    </p>
+  </section>
+
+  <!-- LOVE LETTER -->
+  <section>
+    <h2>A Letter For You 💌</h2>
+    <p>
+      I don’t know what the future looks like,  
+      but I know I want you in it.  
+      You are my comfort, my excitement,  
+      and my favorite person every single day.
+    </p>
+  </section>
+
+  <!-- QUESTION -->
+  <section>
+    <h2>Lekha, will you be my Valentine? 💍</h2>
+
+    <div style="margin-top:30px;">
+      <button class="valentine-btn" onclick="sayYes()">YES, FOREVER ❤️</button>
+      <button class="valentine-btn no-btn" id="noBtn" onclick="changeNoText()">NO 🙈</button>
+    </div>
+
+    <p id="yesText" class="hidden">I love you, Lekha ❤️</p>
+  </section>
+
+  <!-- Background Romantic Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <footer>
+    Made with ❤️ just for you, Lekha
+  </footer>
+
+  <script>
+    function sayYes() {
+      const text = document.getElementById("yesText");
+      text.classList.remove("hidden");
+      text.classList.add("fade-in");
+
+      createConfetti();
+    }
+
+    function changeNoText() {
+      const phrases = [
+        "Are you sure? 👀",
+        "Try again 😜",
+        "Wrong answer 😏",
+        "Think again ❤️",
+        "Really? 🥺"
+      ];
+
+      const noBtn = document.getElementById("noBtn");
+      noBtn.innerText = phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    // floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }, 800);
+
+    // confetti
+    function createConfetti() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
